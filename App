@@ -1,0 +1,783 @@
+<html>
+<head>
+<title></title>
+<style type="text/css">
+ul {
+list-style-type: none;
+margin: 0;
+padding: 0;
+overflow: hidden;
+background-color: #333;
+width:100%;
+}
+.bbg{
+background-image: url("thumb-1920-317196.jpg" );
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+position: relative;
+}
+li {
+float: right;
+}
+li a {
+display: block;
+color:white;
+text-align: center;
+padding: 14px 16px;
+text-decoration: none;
+}
+li a:hover{
+background-color:aquamarine;
+color:black;
+}
+form{
+margin-top: 100px;
+/* margin-left: 160px;*/
+width: 600px;
+border: 2px outset turquoise ;
+border-radius: 5px;
+text-align: center;
+font-family: cursive;
+font-size: 20;
+/* color: whitesmoke;
+background-color: transparent;*/
+background: rgba(220,255,255,0.5);
+</style>
+</head>
+<body class="bbg">
+<imgsrc="b1.jpg" alt="bus" width="1400px" />
+<ul>
+<li><a href="info.php">Pass Information</a></li>
+<li><a href="ustu.php">Student Renewal</a></li>
+<li><a href="vdriver.php">View Driver Details</a></li>
+<li><a href="vbus.php">View Bus Details</a></li>
+<li><a href="vstu.php">View Student Details</a></li>
+<li><a href="driver.php">Driver Register</a></li>
+<li><a href="bus.php">Bus Register</a></li>
+<li><a href="stu.php">Student Register</a></li>
+<li><a href="index.php">Home</a></li>
+</ul>
+<center>
+<formaction=""method="post"enctype="multipart/form-data"><h1>BUS
+REGISTER</h1><pre><h3>Bus ID<input type="text" name="busid"><br><br>
+Bus No. <input type="text" name="busno"><br><br>
+No of seats <input type="text" name="seat"><br><br>
+From <input type="text" name="frm"><br><br>
+To <input type="text" name="too"><br><br>
+<button type="submit" name="go">Submit</button>
+</h3></pre>
+</form>
+</center>
+<?php
+if(isset($_POST['go']))
+{
+$busid=$_POST['busid'];
+$busno=$_POST['busno'];
+$seat=$_POST['seat'];
+$frm=$_POST['frm'];
+$too=$_POST['too'];
+$con=mysqli_connect("localhost","root","","bus1");
+mysqli_query($con,"insert into busreg values('$busid',' $busno','$seat',' $frm','$too')");
+echo'<script>window.alert("REGISTERED"); </script>';
+}
+?>
+</body>
+</html>
+<html>
+<head>
+<title></title>
+<style type="text/css">
+ul {
+list-style-type: none;
+margin: 0;
+padding: 0;
+overflow: hidden;
+background-color: #333;
+width:100%;
+}
+.bbg{
+background-image: url("thumb-1920-317196.jpg" );
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+position: relative;
+}
+li {
+float: right;
+}
+li a {
+display: block;
+color: white;
+text-align: center;
+padding: 14px 16px;
+text-decoration: none;
+}
+li a:hover{
+background-color:aquamarine;
+color:black;
+}
+form{
+margin-top: 100px;
+/* margin-left: 160px;*/
+width: 600px;
+border: 2px outset turquoise ;
+border-radius: 5px;
+text-align: center;
+font-family: cursive;
+font-size: 20;
+/* color: whitesmoke;
+background-color: transparent;*/
+background: rgba(220,255,255,0.5);
+</style>
+</head>
+<body class="bbg">
+<imgsrc="b1.jpg" alt="bus" width="1400px" />
+<ul>
+<li><a href="info.php">Pass Information</a></li>
+<li><a href="ustu.php">Student Renewal</a></li>
+<li><a href="vdriver.php">View Driver Details</a></li>
+<li><a href="vbus.php">View Bus Details</a></li>
+<li><a href="vstu.php">View Student Details</a></li>
+<li><a href="driver.php">Driver Register</a></li>
+<li><a href="bus.php">Bus Register</a></li>
+<li><a href="stu.php">Student Register</a></li>
+<li><a href="index.php">Home</a></li>
+</ul>
+<center>
+<form action="" method="post" enctype="multipart/form-data"><h1>
+DRIVER REGISTER</h1><pre><h3>
+Driver Name<input type="text" name="drivername"><br><br>
+Driver id <input type="text" name="driverid"><br><br>
+Age <input type="text" name="age"><br><br>
+License no <input type="text" name="icno"><br><br>
+Address <textarea name="ad"></textarea><br><br>
+Contact <input type="text" name="cont"><br><br>
+Bus Id <input type="text" name="busid"><br><br>
+<button type="submit" name="go">Submit</button>
+</h3></pre>
+</form>
+</center>
+<?php
+if(isset($_POST['go']))
+{
+$drivername=$_POST['drivername'];
+$driverid=$_POST['driverid'];
+$age=$_POST['age'];
+$icno=$_POST['icno'];
+$ad=$_POST['ad'];
+$cont=$_POST['cont'];
+$busid=$_POST['busid'];
+$con=mysqli_connect("localhost","root","","bus1");
+mysqli_query($con,"insert into driverreg values(' $drivername','
+$driverid','$age',' $icno','$ad','$cont','$busid')");
+echo'<script>window.alert("REGISTERED"); </script>';
+}
+?>
+</body>
+</html>
+<html>
+<head>
+<title></title>
+<style type="text/css">
+ul {
+list-style-type: none;
+margin: 0;
+padding: 0;
+overflow: hidden;
+background-color: #333;
+width:auto;
+}
+li {
+float: right;
+}
+li a {
+display: block;
+color: white;
+text-align: center;
+padding: 14px 16px;
+text-decoration: none;
+}
+.bbg{
+background-image: url("thumb-1920-317196.jpg" );
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+position: relative;
+}
+li a:hover{
+background-color:aquamarine;
+color:black;
+}
+</style>
+</head>
+<body class="bbg" >
+<form id="form1" runat="server">
+<imgsrc="b1.jpg" alt="bus" />
+<ul>
+<li><a href="info.php">Pass Information</a></li>
+<li><a href="ustu.php">Student Renewal</a></li>
+<li><a href="vdriver.php">View Driver Details</a></li>
+<li><a href="vbus.php">View Bus Details</a></li>
+<li><a href="vstu.php">View Student Details</a></li>
+<li><a href="driver.php">Driver Register</a></li>
+<li><a href="bus.php">Bus Register</a></li>
+<li><a href="stu.php">Student Register</a></li>
+<li><a href="index.php">Home</a></li>
+</ul>
+</form>
+</body>
+</html>
+<html>
+<head>
+<title></title>
+<style type="text/css">
+ul {
+list-style-type: none;
+margin: 0;
+padding: 0;
+overflow: hidden;
+background-color: #333;
+24
+width:100%;
+}
+.bbg{
+background-image: url("thumb-1920-317196.jpg" );
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+position: relative;
+}
+li {
+float: right;
+}
+li a {
+display: block;
+color: white;
+text-align: center;
+padding: 14px 16px;
+text-decoration: none;
+}
+li a:hover{
+background-color:aquamarine;
+color:black;
+}
+form{
+margin-top: 100px;
+/* margin-left: 160px;*/
+width: 600px;
+border: 2px outset turquoise ;
+border-radius: 5px;
+text-align: center;
+font-family: cursive;
+font-size: 20;
+/* color: whitesmoke;
+background-color: transparent;*/
+background: rgba(220,255,255,0.5);
+}
+</style>
+</head>
+<body class="bbg">
+<imgsrc="b1.jpg" alt="bus" width="1400px" />
+<ul>
+<li><a href="info.php">Pass Information</a></li>
+<li><a href="ustu.php">Student Renewal</a></li>
+<li><a href="vdriver.php">View Driver Details</a></li>
+<li><a href="vbus.php">View Bus Details</a></li>
+<li><a href="vstu.php">View Student Details</a></li>
+<li><a href="driver.php">Driver Register</a></li>
+<li><a href="bus.php">Bus Register</a></li>
+<li><a href="stu.php">Student Register</a></li>
+<li><a href="index.php">Home</a></li>
+</ul>
+<center>
+<form action="" method="post" enctype="multipart/form-data"><h1>STUDENT
+REGISTER</h1><pre><h3>
+INFORMATION <input type="text" name="inf"><br><br>
+<button type="submit" name="go">POST</button>
+</h3></pre>
+</form>
+</center>
+<?php
+if(isset($_POST['go']))
+{
+$con=mysqli_connect("localhost","root","","bus1");
+$result = mysqli_query($con,"select * from stureg ");
+while ($row= $result->fetch_assoc())
+{
+if(mail($row['mid'],"post from college transportation",$_POST['inf']))
+{
+// echo"mail sent";
+}
+}
+echo'<script>window.alert("sent"); </script>';
+}
+?>
+</body>
+</html>
+<html>
+<head>
+<title></title>
+<style type="text/css">
+ul {
+list-style-type: none;
+margin: 0;
+padding: 0;
+overflow: hidden;
+background-color: #333;
+width:100%;
+}
+.bbg{
+background-image: url("thumb-1920-317196.jpg" );
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+position: relative;
+}
+li {
+float: right;
+}
+li a {
+display: block;
+color: white;
+text-align: center;
+padding: 14px 16px;
+text-decoration: none;
+}
+li a:hover{
+background-color:aquamarine;
+color:black;
+}
+form{
+margin-top: 100px;
+/* margin-left: 160px;*/
+width: 600px;
+border: 2px outset turquoise ;
+border-radius: 5px;
+text-align: center;
+font-family: cursive;
+font-size: 20;
+/* color: whitesmoke;
+background-color: transparent;*/
+background: rgba(220,255,255,0.5);
+}
+</style>
+</head>
+<body class="bbg">
+<imgsrc="b1.jpg" alt="bus" width="1400px" />
+<ul>
+<li><a href="info.php">Pass Information</a></li>
+<li><a href="ustu.php">Student Renewal</a></li>
+<li><a href="vdriver.php">View Driver Details</a></li>
+<li><a href="vbus.php">View Bus Details</a></li>
+<li><a href="vstu.php">View Student Details</a></li>
+<li><a href="driver.php">Driver Register</a></li>
+<li><a href="bus.php">Bus Register</a></li>
+<li><a href="stu.php">Student Register</a></li>
+<li><a href="index.php">Home</a></li>
+</ul>
+<center>
+<form action="" method="post" enctype="multipart/form-data">
+<h1>STUDENT REGISTER</h1><pre><h3>
+Name <input type="text" name="name"><br><br>
+Reg No <input type="text" name="reg"><br><br>
+Department <input type="text" name="dept"><br><br>
+Mail Id <input type="text" name="mid"><br><br>
+Address <textarea name="ad"></textarea><br><br>
+contact<input type="text" name="cont"><br><br>
+From <input type="text" name="from"><br><br>
+To <input type="text" name="to"><br><br>
+Bus Fare <input type="text" name="fare"><br><br>
+Bus Id <input type="text" name="busid"><br><br>
+<button type="submit" name="go">Submit</button>
+</h3></pre>
+</form>
+</center>
+<?php
+if(isset($_POST['go']))
+{
+$name=$_POST['name'];
+$reg=$_POST['reg'];
+$dept=$_POST['dept'];
+$mid=$_POST['mid'];
+$ad=$_POST['ad'];
+$cont=$_POST['cont'];
+$from=$_POST['from'];
+$to=$_POST['to'];
+$fare=$_POST['fare'];
+$busid=$_POST['busid'];
+$con=mysqli_connect("localhost","root","","bus1");
+mysqli_query($con,"insertintosturegvalues('$name','$reg','$dept','$mid','$ad','$cont','$from','$to','$far
+e','$busid')");
+echo'<script>window.alert("REGISTERED"); </script>';}
+?>
+</body>
+</html><html>
+<head>
+<title></title>
+<style type="text/css">
+ul {
+list-style-type: none;
+margin: 0;
+padding: 0;
+overflow: hidden;
+background-color: #333;
+width:100%;
+}
+.bbg{
+background-image: url("thumb-1920-317196.jpg" );
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+position: relative;
+}
+li {
+float: right;
+}
+li a {
+display: block;
+color: white;
+text-align: center;
+padding: 14px 16px;
+text-decoration: none;
+}
+li a:hover{
+background-color:aquamarine;
+color:black;
+}
+form{
+margin-top: 100px;
+/* margin-left: 160px;*/
+width: 600px;
+border: 2px outset turquoise ;
+border-radius: 5px;
+text-align: center;
+font-family: cursive;
+font-size: 20;
+/* color: whitesmoke;
+background-color: transparent;*/
+background: rgba(220,255,255,0.5);
+</style>
+</head>
+<body class="bbg">
+<imgsrc="b1.jpg" alt="bus" width="1400px" />
+<ul>
+<li><a href="info.php">Pass Information</a></li>
+<li><a href="ustu.php">Student Renewal</a></li>
+<li><a href="vdriver.php">View Driver Details</a></li>
+<li><a href="vbus.php">View Bus Details</a></li>
+<li><a href="vstu.php">View Student Details</a></li>
+<li><a href="driver.php">Driver Register</a></li>
+<li><a href="bus.php">Bus Register</a></li>
+<li><a href="stu.php">Student Register</a></li>
+<li><a href="index.php">Home</a></li>
+</ul>
+<center>
+<form action="" method="post" enctype="multipart/form-data">
+<h1>STUDENT REGISTER</h1><pre><h3>
+Reg No <input type="text" name="reg"><br><br>
+<button type="submit" name="go">Submit</button>
+</h3></pre>
+</form>
+</center>
+<center>
+<form action="" method="post" enctype="multipart/form-data"><?php
+if(isset($_POST['go']))
+{
+$con=mysqli_connect("localhost","root","","bus1");
+$result = mysqli_query($con,"select * from stureg
+where reg= '".$_POST['reg']."'");
+print "<CENTER>";
+print "<TABLE border='1'>";
+print"<TR>"."<TD>"."NAME"."</TD>”."<TD>"."REGNO"."</TD>"."<TD>"
+."DEPARTMENT"."</TD>"."<TD>"."MAILID"."</TD>"."<TD>"."ADDRESS
+"."</TD>"."<TD>"."CONTACT"."</TD>"."<TD>"."FROM"."</TD>"."<TD>"."
+TO"."</TD>"."<TD>"."FARE"."</TD>"."<TD>"."BUS ID"."</TD>"."</TR>";
+print "<TR></TR>";
+print "<TR></TR>";
+while ($row= $result->fetch_assoc())
+{
+print"<TR>"."<TD>".$row["name"]."</TD>"."<TD>".$row["reg"]."</TD>".
+"<TD>".$row["dept"]."</TD>"."<TD>".$row["mid"]."</TD>"."<TD>".$row["ad"]
+."</TD>"."<TD>".$row["cont"]."</TD>"."<TD>".$row["frm"]."</TD>"."<TD>"
+.$row["too"]."</TD>"."<TD>".$row["fare"]."</TD>"."<TD>".$row["busid"]
+."</TD>"."</TR>"."<CENTER>". "<BR>";
+}
+print "</TABLE>";
+print "</CENTER>";
+}
+?>
+</form>
+</center>
+<br>
+<br>
+<center>
+<form action="" method="post" enctype="multipart/form-data"><h1>
+BUS PASS RENEWAL </h1><pre><h3>
+Amount<input type="text" name="ren"><br><br>
+<button type="submit" name="goo">Submit</button>
+</h3></pre>
+</form>
+<?php
+if(isset($_POST['goo']))
+{
+$con=mysqli_connect("localhost","root","","bus1");
+echo'<script>window.alert("SUBMITTED"); </script>';
+}
+?>
+</center>
+</body>
+</html><html>
+<head>
+<title></title>
+<style type="text/css">
+ul {
+list-style-type: none;
+margin: 0;
+padding: 0;
+overflow: hidden;
+background-color: #333;
+width:100%;
+}
+.bbg{
+background-image: url("thumb-1920-317196.jpg" );
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+position: relative;
+}
+li {
+float: right;
+}
+li a {
+display: block;
+color: white;
+text-align: center;
+padding: 14px 16px;
+text-decoration: none;
+}
+li a:hover{
+background-color:aquamarine;
+color:black;
+}
+form{
+margin-top: 100px;
+/* margin-left: 160px;*/
+width: 400px;
+border: 2px outset turquoise ;
+border-radius: 5px;
+text-align: center;
+font-family: cursive;
+font-size: 20;
+/* color: whitesmoke;
+background-color: transparent;*/
+background: rgba(220,255,255,0.5);
+</style>
+</head>
+<body class="bbg">
+<imgsrc="b1.jpg" alt="bus" width="1400px" />
+<ul>
+<li><a href="info.php">Pass Information</a></li>
+<li><a href="ustu.php">Student Renewal</a></li>
+<li><a href="vdriver.php">View Driver Details</a></li>
+<li><a href="vbus.php">View Bus Details</a></li>
+<li><a href="vstu.php">View Student Details</a></li>
+<li><a href="driver.php">Driver Register</a></li>
+<li><a href="bus.php">Bus Register</a></li>
+<li><a href="stu.php">Student Register</a></li>
+<li><a href="index.php">Home</a></li>
+</ul>
+<center>
+<form action="" method="post" enctype="multipart/form-data"><?php
+$con=mysqli_connect("localhost","root","","bus1");
+$result = mysqli_query($con,"select * from busreg");
+print "<CENTER>";
+print "<TABLE border='1'>";
+print"<TR>"."<TD>"."BUSID"."</TD>"."<TD>"."BUS
+NO"."</TD>"."<TD>"."NO.OFSEATS"."</TD>"."<TD>"."FROM"."</TD>"
+."<TD>"."TO"."</TD>"."</TR>";
+print "<TR></TR>";
+print "<TR></TR>";
+while ($row= $result->fetch_assoc())
+{
+print"<TR>"."<TD>".$row["busid"]."</TD>"."<TD>".
+$row["busno"]."</TD>"."<TD>".$row["seat"]."</TD>"."<TD>".$row["frm"]
+."</TD>"."<TD>".$row["too"]."</TD>"."</TR>"."<CENTER>". "<BR>";
+}
+print "</TABLE>";
+print "</CENTER>";
+?>
+</form>
+</center>
+</body>
+</html><html>
+<head>
+<title></title>
+<style type="text/css">
+ul {
+list-style-type: none;
+margin: 0;
+padding: 0;
+overflow: hidden;
+background-color: #333;
+width:100%;
+}
+.bbg{
+background-image: url("thumb-1920-317196.jpg" );
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+position: relative;
+}
+li {
+float: right;
+}
+li a {
+display: block;
+color: white;
+text-align: center;
+padding: 14px 16px;
+text-decoration: none;
+}
+li a:hover{
+background-color:aquamarine;
+color:black;
+}
+form{
+margin-top: 100px;
+/* margin-left: 160px;*/
+width: 700px;
+border: 2px outset turquoise ;
+border-radius: 5px;
+text-align: center;
+font-family: cursive;
+font-size: 20;
+/* color: whitesmoke;
+background-color: transparent;*/
+background: rgba(220,255,255,0.5);
+</style>
+</head>
+<body class="bbg">
+<imgsrc="b1.jpg" alt="bus" width="1400px" />
+<ul>
+<li><a href="info.php">Pass Information</a></li>
+<li><a href="ustu.php">Student Renewal</a></li>
+<li><a href="vdriver.php">View Driver Details</a></li>
+<li><a href="vbus.php">View Bus Details</a></li>
+<li><a href="vstu.php">View Student Details</a></li>
+<li><a href="driver.php">Driver Register</a></li>
+<li><a href="bus.php">Bus Register</a></li>
+<li><a href="stu.php">Student Register</a></li>
+<li><a href="index.php">Home</a></li>
+</ul>
+<center>
+<form action="" method="post" enctype="multipart/form-data"><?php
+$con=mysqli_connect("localhost","root","","bus1");
+$result = mysqli_query($con,"select * from driverreg");
+print "<CENTER>";
+print "<TABLE border='1'>";
+print"<TR>"."<TD>"."DRIVERNAME"."</TD>"."<TD>"."DRIVER
+ID"."</TD>"."<TD>"."DRIVER AGE"."</TD>"."<TD>"."LICENCE NO"."
+</TD>"."<TD>"."ADDRESS"."</TD>"."<TD>"."CONTACT"."</TD>"."<TD>
+"."BUS ID"."</TD>"."</TR>";
+print "<TR></TR>";
+print "<TR></TR>";
+while ($row= $result->fetch_assoc())
+{
+print"<TR>"."<TD>".$row["dname"]."</TD>"."<TD>".$row["did"]."</TD>
+"."<TD>".$row["age"]."</TD>"."<TD>".$row["icno"]."</TD>"."<TD>"
+.$row["ad"]."</TD>"."<TD>".$row["cont"]."</TD>"."<TD>".$row["busid"]
+."</TD>"."</TR>"."<CENTER>". "<BR>";
+}
+print "</TABLE>";
+print "</CENTER>";
+?>
+</form>
+</center>
+</body>
+</html><html>
+<head>
+<title></title>
+<style type="text/css">
+ul {
+list-style-type: none;
+margin: 0;
+padding: 0;
+overflow: hidden;
+background-color: #333;
+width:100%;
+}
+.bbg{
+background-image: url("thumb-1920-317196.jpg" );
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+position: relative;
+}
+li {
+float: right;
+}
+li a {
+display: block;
+color: white;
+text-align: center;
+padding: 14px 16px;
+text-decoration: none;
+}
+li a:hover{
+background-color:aquamarine;
+color:black;
+}
+form{
+margin-top: 100px;
+/* margin-left: 160px;*/
+width: 600px;
+border: 2px outset turquoise ;
+border-radius: 5px;
+text-align: center;
+font-family: cursive;
+font-size: 20;
+/* color: whitesmoke;
+background-color: transparent;*/
+background: rgba(220,255,255,0.5);
+</style>
+</head>
+<body class="bbg">
+<imgsrc="b1.jpg" alt="bus" width="1400px" />
+<ul>
+<li><a href="info.php">Pass Information</a></li>
+<li><a href="ustu.php">Student Renewal</a></li>
+<li><a href="vdriver.php">View Driver Details</a></li>
+<li><a href="vbus.php">View Bus Details</a></li>
+<li><a href="vstu.php">View Student Details</a></li>
+<li><a href="driver.php">Driver Register</a></li>
+<li><a href="bus.php">Bus Register</a></li>
+<li><a href="stu.php">Student Register</a></li>
+<li><a href="index.php">Home</a></li>
+</ul><center>
+<form action="" method="post" enctype="multipart/form-data"><?php
+$con=mysqli_connect("localhost","root","","bus1");
+$result = mysqli_query($con,"select * from stureg");
+print "<CENTER>";
+print "<TABLE border='1'>";
+print"<TR>"."<TD>"."NAME"."</TD>"."<TD>"."REGNO"."</TD>"."<TD>
+"."DEPARTMENT"."</TD>"."<TD>"."MAILID"."</TD>"."<TD>"."ADDRESS
+"."</TD>"."<TD>"."CONTACT"."</TD>" ."<TD>"."FROM"."
+</TD>"."<TD>"."TO"."</TD>"."<TD>"."FARE"."</TD>"."<TD>"."BUS ID"."</TD>"."</TR>";
+print "<TR></TR>";
+print "<TR></TR>";
+while ($row= $result->fetch_assoc())
+{
+Print"<TR>"."<TD>".$row["name"]."</TD>"."<TD>". $row["reg"]."</TD>
+"."<TD>".$row["dept"]."</TD>"."<TD>".$row["mid"]."</TD>"."<TD>"
+.$row["ad"]."</TD>"."<TD>".$row["cont"]."</TD>"."<TD>".$row["frm"]
+."</TD>"."<TD>".$row["too"]."</TD>"."<TD>".$row["fare"]."</TD>"
+."<TD>".$row["busid"]."</TD>" ."</TR>"."<CENTER>". "<BR>";
+}
+print "</TABLE>";
+print "</CENTER>";
+?>
+</form>
+</center>
+</body>
+</html>
