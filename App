@@ -238,7 +238,6 @@ margin: 0;
 padding: 0;
 overflow: hidden;
 background-color: #333;
-24
 width:100%;
 }
 .bbg{
